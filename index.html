@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagnostics & Health Monitor</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 40px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #0066cc; text-align: center; }
+        .card { background: #eef2f7; padding: 20px; border-radius: 6px; margin-top: 20px; }
+        button { background-color: #0066cc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #004999; }
+        #status { font-weight: bold; margin-top: 15px; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Network Diagnostics & Health Monitor</h1>
+        <p style="text-align: center; color: #666;">A lightweight utility to check network connectivity and health status.</p>
+        
+        <div class="card">
+            <h3>Connection Status</h3>
+            <button onclick="checkConnection()">Run Diagnostics</button>
+            <p id="status">Click the button to check status...</p>
+        </div>
+    </div>
+
+    <script>
+        function checkConnection() {
+            const statusEl = document.getElementById("status");
+            statusEl.style.color = "#333";
+            statusEl.innerText = "Checking connection...";
+            
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    statusEl.style.color = "green";
+                    statusEl.innerText = "Status: Online (Connected to Internet)";
+                } else {
+                    statusEl.style.color = "red";
+                    statusEl.innerText = "Status: Offline (No Internet Connection)";
+                }
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>
